@@ -1,0 +1,10 @@
+services:
+  baget-backend:
+    image: loicsharma/baget
+    restart: on-failure
+    ports: 
+      - 5555:80
+    volumes:
+      - D:\baget\:/var/baget
+    env_file:
+      - D:\baget\baget.env
