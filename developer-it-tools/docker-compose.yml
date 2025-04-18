@@ -1,0 +1,11 @@
+services:
+    nginx:
+        image: nginx
+        logging:
+            options:
+                max-size: 1g
+        restart: always
+        volumes:
+            - '/var/run/docker.sock:/tmp/docker.sock:ro'
+        ports:
+            - '80:80'
