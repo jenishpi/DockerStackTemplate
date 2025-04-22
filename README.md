@@ -5,4 +5,8 @@ This repository provides Docker Compose templates for essential development tool
 
 **Features**
 
-DynamoDB: Fully managed NoSQL database service provided by AWS.
+**DynamoDB**: Fully managed NoSQL database service provided by AWS with admin panel
+
+**NugetStore**: Self host nuget package in local environment/network
+
+
