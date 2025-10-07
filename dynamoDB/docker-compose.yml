@@ -1,3 +1,6 @@
+# DynamoDB calculator - https://zaccharles.github.io/dynamodb-calculator/
+#  
+
 services:
 
   dynamodb:
