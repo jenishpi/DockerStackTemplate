@@ -11,3 +11,9 @@ services:
     restart: unless-stopped
     ports:
       - "8080:80"      
+  stirling-pdf:
+    image: stirlingtools/stirling-pdf
+    container_name: stirling-pdf
+    restart: unless-stopped
+    ports:
+      - "8082:8080"
