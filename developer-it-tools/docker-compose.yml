@@ -17,3 +17,9 @@ services:
     restart: unless-stopped
     ports:
       - "8082:8080"
+  bentopdf:
+    image: bentopdf/bentopdf # Or any other web server image like Caddy, Apache
+    container_name: bentopdf_web    
+    ports:
+      - "8083:8080" # Map host port 80 to container port 80
+    restart: unless-stopped
