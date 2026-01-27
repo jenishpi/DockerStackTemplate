@@ -7,9 +7,9 @@ This repository provides Docker Compose templates for essential development tool
 
 **DynamoDB**: Fully managed NoSQL database service provided by AWS with admin panel,  and redis
 
-**mongodb**: MongoDB is a popular, open-source NoSQL document database that stores data in flexible, JSON-like documents (BSON) rather than traditional tables with admin panel
+**MongoDB**: MongoDB is a popular, open-source NoSQL document database that stores data in flexible, JSON-like documents (BSON) rather than traditional tables with web client
 
-**redis**: Redis is an in-memory key–value database, used as a distributed cache and message broker with admin panel
+**Redis**: Redis is an in-memory key–value database, used as a distributed cache and message broker with web client
 
 **NugetStore**: Self host nuget package in local environment/network
 
