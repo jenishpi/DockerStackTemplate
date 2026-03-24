@@ -58,3 +58,15 @@ services:
     container_name: redisinsight_container
     ports:
       - "8002:5540" 
+
+  convertx:
+    image: ghcr.io/c4illin/convertx
+    container_name: convertx
+    restart: unless-stopped
+    ports:
+      - "8084:3000"
+    environment:
+      #- JWT_SECRET=aLongAndSecretStringUsedToSignTheJSONWebToken1234 # will use randomUUID() if unset
+      - HTTP_ALLOWED=true # uncomment this if accessing it over a non-https connection
+    volumes:
+      - D:\DockerCompose\devittools:/app/data
