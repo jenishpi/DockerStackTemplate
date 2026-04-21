@@ -13,6 +13,8 @@ This repository provides Docker Compose templates for essential development tool
 
 **NugetStore**: Self host nuget package in local environment/network
 
+**SQLServer**: Self host mssql-server instance for SQL Server without windows
+
 **Developer it-tools**: containers for omni-tools (thousands of user-friendly utilities), it-tools (handy developer tools), stirling-pdf (50+ pdf tools), bentopdf (50+ pdf tools run entirely on browser), ConvertX  online file converter. Supports 1000+ formats (https://github.com/C4illin/ConvertX)
 
 **FTP**: Self hosted FTP server
