@@ -1,0 +1,15 @@
+services:
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql_2022
+    user: "0:0"
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=YourAdminPassword  # Must meet SQL complexity requirements
+      - MSSQL_PID=Developer                 # Options: Developer, Express, Standard, etc.
+      - MSSQL_ENCRYPTION=0
+    ports:
+      - "1433:1433"
+    volumes:
+      - D:\DockerCompose\SQLServer\data:/var/opt/mssql/data
