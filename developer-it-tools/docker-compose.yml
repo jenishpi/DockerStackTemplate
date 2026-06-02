@@ -23,3 +23,14 @@ services:
     ports:
       - "8083:8080" # Map host port 80 to container port 80
     restart: unless-stopped
+  convertx:
+    image: ghcr.io/c4illin/convertx
+    container_name: convertx
+    restart: unless-stopped
+    ports:
+      - "8084:3000"
+    environment:
+      #- JWT_SECRET=aLongAndSecretStringUsedToSignTheJSONWebToken1234 # will use randomUUID() if unset
+      - HTTP_ALLOWED=true # uncomment this if accessing it over a non-https connection
+    volumes:
+      - D:\DockerCompose\devittools:/app/data
