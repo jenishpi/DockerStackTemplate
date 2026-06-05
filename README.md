@@ -19,4 +19,4 @@ This repository provides Docker Compose templates for essential development tool
 
 **FTP**: Self hosted FTP server
 
-**llama.cpp**: Self hosted llama.cpp server to host model in local
+**llama.cpp**: Self hosted llama.cpp server to host model in local without graphics card only powered by processor and ram
