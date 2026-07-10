@@ -1,11 +1,12 @@
 # Docker Stack Templates for Developers
+
 Docker Compose Templates for Development Environments
 
 This repository provides Docker Compose templates for essential development tools and utilities like DynamoDB, developer tools. These templates allow developers to quickly set up and run these services in Docker containers, eliminating the need for manual installation and configuration. and looking on web for simple tools.
 
 **Features**
 
-**DynamoDB**: Fully managed NoSQL database service provided by AWS with admin panel,  and redis
+**DynamoDB**: Fully managed NoSQL database service provided by AWS with admin panel, and redis
 
 **MongoDB**: MongoDB is a popular, open-source NoSQL document database that stores data in flexible, JSON-like documents (BSON) rather than traditional tables with web client
 
@@ -15,8 +16,10 @@ This repository provides Docker Compose templates for essential development tool
 
 **SQLServer**: Self host mssql-server instance for SQL Server without windows
 
-**Developer it-tools**: containers for omni-tools (thousands of user-friendly utilities), it-tools (handy developer tools), stirling-pdf (50+ pdf tools), bentopdf (50+ pdf tools run entirely on browser), ConvertX  online file converter. Supports 1000+ formats (https://github.com/C4illin/ConvertX)
+**Developer it-tools**: containers for omni-tools (thousands of user-friendly utilities), it-tools (handy developer tools), stirling-pdf (50+ pdf tools), bentopdf (50+ pdf tools run entirely on browser), ConvertX online file converter. Supports 1000+ formats (https://github.com/C4illin/ConvertX)
 
 **FTP**: Self hosted FTP server
 
 **llama.cpp**: Self hosted llama.cpp server to host model in local without graphics card only powered by processor and ram
+
+**PostgreSQL**: Self hosted PostgreSQL with pgvector extension (v17) for relational + vector/AI embedding storage. Includes pgAdmin 4 (full-featured web UI at port 8087) and Adminer (lightweight web UI at port 8088) for database management

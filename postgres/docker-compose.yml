@@ -1,0 +1,45 @@
+services:
+
+  postgres:
+    image: pgvector/pgvector:pg17           # pgvector extension built-in (drop-in postgres:16 replacement)
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: YourAdminPassword   # Change before use
+      POSTGRES_DB: appdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - D:\DockerCompose\postgres\data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d appdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin_container
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com   # Login email for pgAdmin
+      PGADMIN_DEFAULT_PASSWORD: YourAdminPassword
+    ports:
+      - "8087:80"                             # http://localhost:5050
+    volumes:
+      - D:\DockerCompose\postgres\pgadmin:/var/lib/pgadmin
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  adminer:
+    image: adminer:latest
+    container_name: adminer_container
+    restart: always
+    ports:
+      - "8088:8080"                           # http://localhost:5051
+    depends_on:
+      postgres:
+        condition: service_healthy
