@@ -1,6 +1,6 @@
 services:
   caddy:
-    image: caddy-duckdns-wildcard  # <-- Use your manually built image here
+    image: jenishpi/caddy-duckdns-wildcard  # <-- Use your manually built image here
     container_name: caddy
     restart: unless-stopped
     ports:
