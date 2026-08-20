@@ -1,0 +1,23 @@
+{    
+    email {env.DUCKDNS_EMAIL}
+}
+
+*.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org {
+    tls {
+        dns duckdns {env.DUCKDNS_TOKEN}
+    }    
+
+    @postgresweb host postgesweb.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @postgresweb {        
+        reverse_proxy {env.DUCKDNS_IP}:8087
+    }
+
+    @postgres host postgres.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @postgres {        
+        reverse_proxy {env.DUCKDNS_IP}:5432
+    }
+        
+    handle {
+        respond "Not Found" 404
+    }
+}
