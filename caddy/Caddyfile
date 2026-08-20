@@ -2,7 +2,7 @@
     email {env.DUCKDNS_EMAIL}
 }
 
-*.jenishpi.duckdns.org {
+*.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org {
     tls {
         dns duckdns {env.DUCKDNS_TOKEN}
     }    
