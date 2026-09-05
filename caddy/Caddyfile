@@ -7,6 +7,11 @@
         dns duckdns {env.DUCKDNS_TOKEN}
     }    
 
+    @vaultwarden host vaultwarden.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @vaultwarden {        
+        reverse_proxy {env.DUCKDNS_IP}:8089
+    }
+
     @postgresweb host postgesweb.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
     handle @postgresweb {        
         reverse_proxy {env.DUCKDNS_IP}:8087
