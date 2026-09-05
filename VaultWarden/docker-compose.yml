@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    environment:
+      - WEBSOCKET_ENABLED=true # Required for live sync
+      - SIGNUPS_ALLOWED=true   # Disable this after you create your account!
+      # --- SMTP Configuration ---
+      - SMTP_HOST=smtp.mailtrap.io            # Your SMTP server address
+      - SMTP_FROM=vaultwarden@yourdomain.com  # Sender email address
+      - SMTP_FROM_NAME=Vaultwarden            # Sender name displayed in inbox
+      - SMTP_PORT=587                         # 587 (StartTLS) or 465 (Implicit TLS)
+      - SMTP_SECURITY=starttls                # "starttls", "force_tls", or "off"
+      - SMTP_USERNAME=your_smtp_username      # SMTP username
+      - SMTP_PASSWORD=your_smtp_password      # SMTP password (use single quotes if it has special chars)
+      - SMTP_TIMEOUT=15                       # Optional: Timeout in seconds
+    volumes:
+      - ./vw-data:/data
+    ports:
+      - "8089:80"
+#     networks:
+#       - caddy_net
+
+# networks:
+#   caddy_net:
+#     external: true
