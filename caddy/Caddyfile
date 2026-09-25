@@ -7,21 +7,100 @@
         dns duckdns {env.DUCKDNS_TOKEN}
     }    
 
-    @vaultwarden host vaultwarden.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
-    handle @vaultwarden {        
-        reverse_proxy {env.DUCKDNS_IP}:8089
+    # --- Databases & DB Management ---
+    @dynamodb host dynamodb.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @dynamodb {
+        reverse_proxy {env.DUCKDNS_IP}:8000
     }
 
-    @postgresweb host postgesweb.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
-    handle @postgresweb {        
-        reverse_proxy {env.DUCKDNS_IP}:8087
+    @dynamodb-admin host dynamodb-admin.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @dynamodb-admin {
+        reverse_proxy {env.DUCKDNS_IP}:8001
+    }
+
+    @redisinsight host redisinsight.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @redisinsight {
+        reverse_proxy {env.DUCKDNS_IP}:8002
+    }
+
+    @redis host redis.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @redis {
+        reverse_proxy {env.DUCKDNS_IP}:6379
+    }
+
+    @mongoclient host mongoclient.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org dwc-artist.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @mongoclient {
+        reverse_proxy {env.DUCKDNS_IP}:8003
+    }
+
+    @mongodb host mongodb.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @mongodb {
+        reverse_proxy {env.DUCKDNS_IP}:27017
     }
 
     @postgres host postgres.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
-    handle @postgres {        
+    handle @postgres {
         reverse_proxy {env.DUCKDNS_IP}:5432
     }
-        
+
+    @pgadmin host pgadmin.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org postgresweb.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org postgesweb.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @pgadmin {
+        reverse_proxy {env.DUCKDNS_IP}:8087
+    }
+
+    @adminer host adminer.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @adminer {
+        reverse_proxy {env.DUCKDNS_IP}:8088
+    }
+
+    @sqlserver host sqlserver.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @sqlserver {
+        reverse_proxy {env.DUCKDNS_IP}:1433
+    }
+
+    # --- Developer IT-Tools ---
+    @it-tools host it-tools.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @it-tools {
+        reverse_proxy {env.DUCKDNS_IP}:8080
+    }
+
+    @omni-tools host omni-tools.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @omni-tools {
+        reverse_proxy {env.DUCKDNS_IP}:8081
+    }
+
+    @stirling-pdf host stirling-pdf.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @stirling-pdf {
+        reverse_proxy {env.DUCKDNS_IP}:8082
+    }
+
+    @bentopdf host bentopdf.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @bentopdf {
+        reverse_proxy {env.DUCKDNS_IP}:8083
+    }
+
+    @convertx host convertx.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @convertx {
+        reverse_proxy {env.DUCKDNS_IP}:8084
+    }
+
+    # --- Application Servers ---
+    @nuget host nuget.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org baget.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @nuget {
+        reverse_proxy {env.DUCKDNS_IP}:5555
+    }
+
+    @llama host llama.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @llama {
+        reverse_proxy {env.DUCKDNS_IP}:8086
+    }
+
+    @vaultwarden host vaultwarden.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @vaultwarden {
+        reverse_proxy {env.DUCKDNS_IP}:8089
+    }
+
+    # --- Fallback ---
     handle {
         respond "Not Found" 404
     }
