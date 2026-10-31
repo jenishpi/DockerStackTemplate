@@ -28,7 +28,7 @@
         reverse_proxy {env.DUCKDNS_IP}:6379
     }
 
-    @mongoclient host mongoclient.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org dwc-artist.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    @mongoclient host mongoclient.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
     handle @mongoclient {
         reverse_proxy {env.DUCKDNS_IP}:8003
     }
@@ -98,6 +98,11 @@
     @vaultwarden host vaultwarden.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
     handle @vaultwarden {
         reverse_proxy {env.DUCKDNS_IP}:8089
+    }
+
+    @keycloak host keycloak.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @keycloak {
+        reverse_proxy {env.DUCKDNS_IP}:8090
     }
 
     # --- Fallback ---
