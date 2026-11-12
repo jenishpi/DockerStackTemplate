@@ -32,7 +32,8 @@ This repository provides Docker Compose templates for essential databases, devel
 - **[FTP Server](FTP/docker-compose.yml)**: Pure-FTPd self-hosted FTP server (ports `21`, `30000-30009`).
 - **[NugetStore](NugetStore/docker-compose.yml)**: BaGet self-hosted NuGet package registry (port `5555`).
 - **[llama.cpp](llama.cpp/docker-compose.yml)**: Local LLM server for hosting AI models on CPU/RAM without requiring a dedicated GPU (port `8086`).
-- **[Vaultwarden](VaultWarden/README.md)**: Self-hosted Bitwarden-compatible password manager with WebSocket live sync and SMTP support (port `8089`).
+- **[Vaultwarden](VaultWarden/docker-compose.yml)**: Self-hosted Bitwarden-compatible password manager with WebSocket live sync and SMTP support (port `8089`).
+- **[Office Document Server](document/docker-compose.yml)**: Local-first web document editor for Word, Excel, PowerPoint, and PDF files (port `8090`).
 
 ---
 

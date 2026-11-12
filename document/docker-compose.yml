@@ -1,0 +1,14 @@
+services:
+  document:
+    image: ghcr.io/ranuts/document:latest
+    container_name: document
+    restart: unless-stopped
+    ports:
+      - "8090:80"
+#     networks:
+#       - caddy_net
+
+# networks:
+#   caddy_net:
+#     external: true
+
