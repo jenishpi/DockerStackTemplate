@@ -12,6 +12,11 @@
         reverse_proxy {env.DUCKDNS_IP}:8089
     }
 
+    @document host document.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
+    handle @document {        
+        reverse_proxy {env.DUCKDNS_IP}:8090
+    }
+
     @postgresweb host postgesweb.{env.DUCKDNS_SUBDOMAINNAME}.duckdns.org
     handle @postgresweb {        
         reverse_proxy {env.DUCKDNS_IP}:8087
